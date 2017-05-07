@@ -9,6 +9,7 @@ import {routing} from './app.routing';
 import {HomeComponent} from './home.component';
 import {UsersComponent} from './Users/users.component';
 import {PostsComponent} from './Posts/posts.component';
+import {PostService} from './post.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {PostsComponent} from './Posts/posts.component';
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
