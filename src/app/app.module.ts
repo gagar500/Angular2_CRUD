@@ -11,6 +11,7 @@ import {UsersComponent} from './Users/users.component';
 import {PostsComponent} from './Posts/posts.component';
 import {PostService} from './post.service';
 import {NewUserComponent} from './Users/new-user.component';
+import {PreventUnsavedChangesGuard} from './prevent-unsave-guard.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import {NewUserComponent} from './Users/new-user.component';
     routing,
     ReactiveFormsModule
   ],
-  providers: [PostService],
+  providers: [PostService,PreventUnsavedChangesGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

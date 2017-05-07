@@ -1,4 +1,6 @@
-<form [formGroup]="form">
+<div class="panel panel-default">
+
+<form [formGroup]="form" (ngSubmit)="saveNewUser()">
     <fieldset>
         <legend>User</legend>
         <div class="form-group">
@@ -39,4 +41,6 @@
             <input placeholder="ZipCode" type="text" formControlName="zipcode" class="form-control" />
         </div>
     </fieldset>
+    <button class="btn btn-primary"  [disabled]="!form.valid" type="submit">Save</button>
 </form>
+</div>

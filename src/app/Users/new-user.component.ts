@@ -1,28 +1,42 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import {EmailValidators} from './email-validators';
+import { EmailValidators } from './email-validators';
+import { FormComponent } from '../prevent-unsave-guard.service';
 
 @Component({
     selector: 'new-user',
     templateUrl: 'new-user.template.html'
 })
 
-export class NewUserComponent {
+export class NewUserComponent implements FormComponent {
+
+
     form: FormGroup;
 
     constructor(fb: FormBuilder) {
         this.form = fb.group(
             {
 
-                name: ['',Validators.compose([Validators.required])],
-                 email: ['',Validators.compose([EmailValidators.validateEmail])],
-                  phone: ['']
+                name: ['', Validators.compose([Validators.required])],
+                email: ['', Validators.compose([EmailValidators.validateEmail])],
+                phone: ['']
                 ,
                 address: fb.group(
                     { street: [''], suite: [''], city: [''], zipcode: [''] }
                 )
             }
         );
+    }
+
+    saveNewUser() {
+        console.log(this.form);
+    }
+
+    hasUnsavedChanges(): Boolean {
+        if (this.form.dirty)
+            return true;
+
+        return false;
     }
 
 }
