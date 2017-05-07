@@ -5,15 +5,20 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent} from './navbar.component';
+import {routing} from './app.routing'; 
+import {HomeComponent} from './home.component';
+import {UsersComponent} from './Users/users.component';
+import {PostsComponent} from './Posts/posts.component';
 
 @NgModule({
   declarations: [
-    AppComponent,NavBarComponent
+    AppComponent,NavBarComponent,HomeComponent,UsersComponent,PostsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
