@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import {EmailValidators} from './email-validators';
 
 @Component({
     selector: 'new-user',
@@ -13,7 +14,9 @@ export class NewUserComponent {
         this.form = fb.group(
             {
 
-                name: [''], email: [''], phone: ['']
+                name: ['',Validators.compose([Validators.required])],
+                 email: ['',Validators.compose([EmailValidators.validateEmail])],
+                  phone: ['']
                 ,
                 address: fb.group(
                     { street: [''], suite: [''], city: [''], zipcode: [''] }
