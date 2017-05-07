@@ -15,7 +15,7 @@ export class PostService{
 
     PostData(url:string,data:String){
         console.log(data);
-        this._http.post(url,data)
+       return this._http.post(url,data)
            .map(res => res.json());
     }
 
