@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -10,16 +10,18 @@ import {HomeComponent} from './home.component';
 import {UsersComponent} from './Users/users.component';
 import {PostsComponent} from './Posts/posts.component';
 import {PostService} from './post.service';
+import {NewUserComponent} from './Users/new-user.component';
 
 @NgModule({
   declarations: [
-    AppComponent,NavBarComponent,HomeComponent,UsersComponent,PostsComponent
+    AppComponent,NavBarComponent,HomeComponent,UsersComponent,PostsComponent,NewUserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    ReactiveFormsModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent]
