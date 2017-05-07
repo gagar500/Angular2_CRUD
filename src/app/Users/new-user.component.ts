@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { EmailValidators } from './email-validators';
 import { FormComponent } from '../prevent-unsave-guard.service';
+import { PostService } from '../post.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'new-user',
@@ -12,8 +14,9 @@ export class NewUserComponent implements FormComponent {
 
 
     form: FormGroup;
+    url = 'https://jsonplaceholder.typicode.com/users';
 
-    constructor(fb: FormBuilder) {
+    constructor(fb: FormBuilder, private _postService: PostService,private _router:Router) {
         this.form = fb.group(
             {
 
@@ -29,7 +32,11 @@ export class NewUserComponent implements FormComponent {
     }
 
     saveNewUser() {
-        console.log(this.form);
+
+
+        this._postService.PostData(this.url, this.form.value);
+        this.form.reset();
+        this._router.navigate(['Users']);
     }
 
     hasUnsavedChanges(): Boolean {
