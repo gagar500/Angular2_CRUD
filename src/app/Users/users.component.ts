@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
 
+
 @Component({
     selector: 'users',
     templateUrl: './users.template.html'
@@ -18,4 +19,6 @@ export class UsersComponent implements OnInit {
         });
 
     }
+
+  
 }
