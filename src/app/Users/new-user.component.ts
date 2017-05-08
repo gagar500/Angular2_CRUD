@@ -89,13 +89,14 @@ export class NewUserComponent implements FormComponent, OnInit, OnDestroy {
         this._postService.getServiceData(this.url + '/' + this.id).subscribe(res => {
             console.log(res);
             this.user = res;
-            this.form.controls.name.setValue(this.user.name);
-            this.form.controls.email.setValue(this.user.email);
-            this.form.controls.phone.setValue(this.user.phone);
-            this.form.controls.address.get('street').setValue(this.user.address.street);
-            this.form.controls.address.get('suite').setValue(this.user.address.suite);
-            this.form.controls.address.get('city').setValue(this.user.address.city);
-            this.form.controls.address.get('zipcode').setValue(this.user.address.zipcode);
+             console.log(JSON.stringify(this.user));
+            // this.form.controls.name.setValue(this.user.name);
+            // this.form.controls.email.setValue(this.user.email);
+            // this.form.controls.phone.setValue(this.user.phone);
+            // this.form.controls.address.get('street').setValue(this.user.address.street);
+            // this.form.controls.address.get('suite').setValue(this.user.address.suite);
+            // this.form.controls.address.get('city').setValue(this.user.address.city);
+            // this.form.controls.address.get('zipcode').setValue(this.user.address.zipcode);
 
         }, err => {
             console.error(err);

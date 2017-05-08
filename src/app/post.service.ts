@@ -1,6 +1,7 @@
 import {Http} from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+import { User } from "app/Users/user";
 
 
 @Injectable()
@@ -13,15 +14,15 @@ export class PostService{
         .map(res=>res.json());
     }
 
-    PostData(url:string,data:String){
-        console.log(data);
-       return this._http.post(url,data)
+    PostData(url:string,user:User){
+        console.log(JSON.stringify(user));
+       return this._http.post(url,JSON.stringify(user))
            .map(res => res.json());
     }
 
-    PutData(url:string,data:String){
-        console.log(data);
-       return this._http.put(url,data)
+    PutData(url:string,user:User){
+        console.log(JSON.stringify(user));
+       return this._http.put(url,JSON.stringify(user))
            .map(res => res.json());
     }
 
