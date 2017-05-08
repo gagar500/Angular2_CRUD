@@ -12,7 +12,7 @@
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
             <td><a [routerLink]="['/Users',user.id]"><i class="glyphicon glyphicon-edit"></i></a></td>
-            <td><i class="glyphicon glyphicon-trash"></i></td>
+            <td><i class="glyphicon glyphicon-trash" style="cursor:pointer" (click)="deleteUser(user.id)"></i></td>
         </tr>
     </thead>
 </table>

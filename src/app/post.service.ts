@@ -26,4 +26,10 @@ export class PostService{
            .map(res => res.json());
     }
 
+    DeleteData(url:string){
+           console.log(url);
+       return this._http.delete(url)
+           .map(res => res.json());
+    }
+
 }
