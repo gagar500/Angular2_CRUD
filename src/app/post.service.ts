@@ -19,4 +19,10 @@ export class PostService{
            .map(res => res.json());
     }
 
+    PutData(url:string,data:String){
+        console.log(data);
+       return this._http.put(url,data)
+           .map(res => res.json());
+    }
+
 }

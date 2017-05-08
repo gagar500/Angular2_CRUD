@@ -1,5 +1,6 @@
 <h3>{{title}}</h3>
-
+<div class="row">
+    <div class="col-md-6 well">
 <form [formGroup]="form" (ngSubmit)="saveNewUser()">
     <fieldset>
         <legend>User</legend>
@@ -43,3 +44,5 @@
     </fieldset>
     <button class="btn btn-primary"  [disabled]="!form.valid" type="submit">Save</button>
 </form>
+</div>
+</div>
