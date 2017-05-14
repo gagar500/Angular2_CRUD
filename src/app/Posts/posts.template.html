@@ -1,1 +1,42 @@
 <h2>Posts</h2>
+
+
+<div class="  col col-md-6">
+    <select class="form-control" #u (change)="GetUserPost(u.value)">
+    <option value="">Select Account</option>
+    <option *ngFor="let user of users"  value="{{user.id}}">{{user.name}}</option>
+  </select>
+  <pagination [items]="posts" [pageSize]="pageSize" (page-changed)="onPageChanged($event)"></pagination>
+    <spinner [visible]="isLoading"></spinner>
+    <ul class="posts list-group">
+        <li class=" list-group-item" *ngFor="let post of pagedPosts;let i =index"><span (click)="ShowDetails(post)">{{post.title}}</span></li>
+    </ul>
+
+</div>
+
+<div *ngIf="postDetails !=null" class="col col-md-6 panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{postDetails.title}}</h3>
+    </div>
+    <div class="panel-body">
+        {{postDetails.body}}
+    </div>
+    <div class="panel-body">
+        <spinner [visible]="isLoadingComment"></spinner>
+        <div *ngFor="let comment of comments;let i=index" class="media">
+            <div class="media-left">
+                <a href="#">
+                    <a href="#">
+                        <img class="img-circle media-object" src="http://lorempixel.com/100/100/people?{{i}}" alt="people">
+                    </a>
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{comment.name}}</h4>
+                <span>{{comment.body}}</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>

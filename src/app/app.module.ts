@@ -13,10 +13,14 @@ import {PostService} from './post.service';
 import {NewUserComponent} from './Users/new-user.component';
 import {PreventUnsavedChangesGuard} from './prevent-unsave-guard.service';
 import {NotFoundComponent} from './not-found.component';
+import {SpinnerComponent} from './spinner.component';
+import {PaginationComponent} from './pagination.component';
 
 @NgModule({
   declarations: [
-    AppComponent,NavBarComponent,HomeComponent,UsersComponent,PostsComponent,NewUserComponent,NotFoundComponent
+    AppComponent,NavBarComponent,HomeComponent,UsersComponent,
+    PostsComponent,NewUserComponent,NotFoundComponent,SpinnerComponent
+    ,PaginationComponent
   ],
   imports: [
     BrowserModule,
